@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+import './css/app.css';
 
-function App() {
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+
+
+export const REST_ENPOINT = 'http://localhost:5500/adminPref/1';
+
+export default function App() {
+  const [APIData, setAPIData] = useState(null);
+
+  useEffect(() => {
+    axios.get(REST_ENPOINT)
+    .then(res => {
+      setAPIData(res.data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }, [])
+
+  console.log(APIData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {
+        APIData ?
+          <>
+            <Navbar navbar={APIData.navbar} />
+            <Footer footer={APIData.footer} />
+          </>
+        :
+          <div>Nooo</div>  
+      }
+    </>
   );
 }
 
-export default App;
