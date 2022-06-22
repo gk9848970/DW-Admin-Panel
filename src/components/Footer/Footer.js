@@ -23,7 +23,7 @@ export default function Footer({ footer }) {
     if(selectedOption) {
         handleSelectedOptionAndFooterSync();
     }
-
+    
     // Post Footer Data to server
     function handlePostFooterData(data) {
         const newFooterInfo = {...footerInfo, footerData: data}
@@ -52,17 +52,46 @@ export default function Footer({ footer }) {
         <FooterContext.Provider value={FooterContextValue}>
             <SelectFooter />
 
-            {footerInfo.footerType === 1 
-            && <FooterOne footerBlocks={footer.footerData.blocks} />} 
+            {footerInfo.footerType === 1 && 
+            <FooterOne 
+                footerBlocks={footer.footerData.blocks}
+                footerLogo={footer.footerData.logoImgURL}
+                footerAddress={footer.footerData.address}
+                footerCopyright={footer.footerData.copyright}
+                footerSocialLinks={footer.footerData.socialLinks}
+            />} 
 
-            {footerInfo.footerType === 2 
-            && <FooterTwo footerBlocks={footer.footerData.blocks} />}
+            {footerInfo.footerType === 2 && 
+            <FooterTwo 
+                footerBlocks={footer.footerData.blocks}
+                footerLogo={footer.footerData.logoImgURL}
+                footerAddress={footer.footerData.address}
+                footerCopyright={footer.footerData.copyright}
+                footerSocialLinks={footer.footerData.socialLinks}
+                footerHeading={footer.footerData.heading}
+                footerSubHeading={footer.footerData.subHeading}
+                footerButton={footer.footerData.button}
+            />}
 
-            {footerInfo.footerType === 3 
-            && <FooterThree footerBlocks={footer.footerData.blocks} />}
+            {footerInfo.footerType === 3 && 
+            <FooterThree 
+                footerBlocks={footer.footerData.blocks}
+                footerLogo={footer.footerData.logoImgURL}
+                footerAddress={footer.footerData.address}
+                footerCopyright={footer.footerData.copyright}
+                footerSocialLinks={footer.footerData.socialLinks}
+                footerHeading={footer.footerData.heading}
+                footerSubHeading={footer.footerData.subHeading}
+                footerButton={footer.footerData.button}
+            />}
             
-            {footerInfo.footerType === 4 
-            && <FooterFour footerBlocks={footer.footerData.blocks} />}
+            {footerInfo.footerType === 4 && 
+            <FooterFour 
+                footerBlocks={footer.footerData.blocks}
+                footerSocialLinks={footer.footerData.socialLinks}
+                footerHeading={footer.footerData.heading}
+                footerSubHeading={footer.footerData.subHeading} 
+            />}
 
         </FooterContext.Provider>
     )

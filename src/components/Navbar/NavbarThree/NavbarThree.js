@@ -52,7 +52,7 @@ const sampleData = {
     logoImgURL: "",
     button: {
         text: "",
-        URL: "",
+        btnURL: "",
     }
 }
 */
