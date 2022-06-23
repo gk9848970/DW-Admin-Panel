@@ -5,7 +5,9 @@ import './css/app.css';
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
-
+import Feature from './components/Feature/Feature'
+import Testimonial from './components/Testimonial/Testimonial'
+import Carousel from './components/Carousel/Carousel'
 
 export const REST_ENPOINT = 'http://localhost:5500/adminPref/1';
 
@@ -22,7 +24,7 @@ export default function App() {
     })
   }, [])
 
-  // console.log(APIData);
+  console.log(APIData);
 
   return (
     <>
@@ -32,6 +34,9 @@ export default function App() {
             <Navbar navbar={APIData.navbar} />
             <Footer footer={APIData.footer} />
             <Header header={APIData.header} />
+            <Feature feature={APIData.feature} />
+            <Testimonial testimonial={APIData.testimonial} />
+            <Carousel carousel={APIData.carousel} />
           </>
         :
           <div>Nooo</div>  

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function HeaderBlockInput(props) {
+export default function CarouselBlockInput(props) {
     const {
         labelName,
         inputName,
@@ -8,6 +8,7 @@ export default function HeaderBlockInput(props) {
         blockID,
         handleChangePropertyBlock,
     } = props;
+
     return (
         <>
             <label>{labelName}</label>

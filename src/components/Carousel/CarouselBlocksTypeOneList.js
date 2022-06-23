@@ -1,8 +1,8 @@
 import React from 'react'
-import HeaderBlock from './HeaderBlock'
+import CarouselTypeOneBlock from './CarouselTypeOneBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderBlocksList({ blocks, setBlocks }) {
+export default function CarouselBlocksTypeOneList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -17,17 +17,15 @@ export default function HeaderBlocksList({ blocks, setBlocks }) {
     function handleAddBlock() {
         const newBlock  = {
               id: uuidv4(),
-              heading: "Heading",
               description: "Description",
-              button: {text: "", btnURL: "" },
-              imgURL: ""
+              imgURL: "",
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <HeaderBlock 
+        <CarouselTypeOneBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

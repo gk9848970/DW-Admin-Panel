@@ -1,38 +1,25 @@
 import React, { useState, useContext } from 'react'
 import { HeaderContext } from '../Header';
-import HeaderInput from '../HeaderInput'
+import HeaderBlocksList from '../HeaderBlocksList'
 
-export default function HeaderOne(props) {
+export default function FooterThree(props) {
   const { 
-    headerHeading,
-    headerDescription,
-    headerSearchbar,
-    headerVideo,
+    headerBlocks,
   } = props;
-  
+
   const { handlePostHeaderData } = useContext(HeaderContext);
-
-  const [heading, setHeading] = useState(headerHeading || "");
-  const [description, setDescription] = useState(headerDescription || "");
-  const [videoURL, setVideoURL] = useState(headerVideo || "");
-  const [searchbarText, setSearchbarText] = useState(headerSearchbar || "");
-
+  const [blocks, setBlocks] = useState(headerBlocks || []);
   return (
     <>
-      <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
-      <HeaderInput state={description} setState={setDescription} label={"description"}/>
-      <HeaderInput state={videoURL} setState={setVideoURL} label={"Background Video URL"}/>
-      <HeaderInput state={searchbarText} setState={setSearchbarText} label={"Search Bar Text"}/>
+      <HeaderBlocksList 
+        blocks={blocks}
+        setBlocks={setBlocks}
+      />
       <br />
       <button 
           onClick={() => {
-            const dataTobeSent = {
-                heading, 
-                description,
-                videoURL,
-                searchbarText,
-            };
-            handlePostHeaderData(dataTobeSent);
+              const dataTobeSent = {blocks};
+              handlePostHeaderData(dataTobeSent);
       }}>
         Post Footer Data
       </button>

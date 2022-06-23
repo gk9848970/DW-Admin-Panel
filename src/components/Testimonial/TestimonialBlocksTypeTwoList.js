@@ -1,8 +1,8 @@
 import React from 'react'
-import HeaderBlock from './HeaderBlock'
+import TestimonialTypeTwoBlock from './TestimonialTypeTwoBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderBlocksList({ blocks, setBlocks }) {
+export default function TestimonialBlocksTypeTwoList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -18,16 +18,15 @@ export default function HeaderBlocksList({ blocks, setBlocks }) {
         const newBlock  = {
               id: uuidv4(),
               heading: "Heading",
+              subHeading: "",
               description: "Description",
-              button: {text: "", btnURL: "" },
-              imgURL: ""
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <HeaderBlock 
+        <TestimonialTypeTwoBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

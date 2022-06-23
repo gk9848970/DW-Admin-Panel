@@ -1,8 +1,8 @@
 import React from 'react'
-import HeaderBlock from './HeaderBlock'
+import FeatureTypeOneBlock from './FeatureTypeOneBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function HeaderBlocksList({ blocks, setBlocks }) {
+export default function FeatureBlocksTypeOneList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -19,15 +19,14 @@ export default function HeaderBlocksList({ blocks, setBlocks }) {
               id: uuidv4(),
               heading: "Heading",
               description: "Description",
-              button: {text: "", btnURL: "" },
-              imgURL: ""
+              imgURL: "",
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <HeaderBlock 
+        <FeatureTypeOneBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

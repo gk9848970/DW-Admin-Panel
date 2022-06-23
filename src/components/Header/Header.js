@@ -13,8 +13,6 @@ export const HeaderContext = React.createContext();
 export default function Header({ header }) {
     const [headerInfo, setHeaderInfo] = useState(header);
     const [selectedOption, setSelectedOption] = useState(null);
-    
-    console.log(headerInfo);
 
     const HeaderContextValue = {
         headerInfo,
@@ -74,15 +72,15 @@ export default function Header({ header }) {
 
             {headerInfo.headerType === 3 && 
             <HeaderThree 
-                headerHeading={headerInfo.headerData.heading}
-                headerDescription={headerInfo.headerData.description}
-                headerSearchbar={headerInfo.headerData.searchbarText}
-                headerVideo={headerInfo.headerData.videoURL}
+                headerBlocks={headerInfo.headerData.blocks}
             />}
             
             {headerInfo.headerType === 4 && 
             <HeaderFour 
-                headerBlocks={headerInfo.headerData.blocks}  
+                headerHeading={headerInfo.headerData.heading}
+                headerDescription={headerInfo.headerData.description}
+                headerSearchbar={headerInfo.headerData.searchbarText}
+                headerVideo={headerInfo.headerData.videoURL} 
             />}
 
         </HeaderContext.Provider>

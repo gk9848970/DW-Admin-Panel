@@ -1,25 +1,38 @@
 import React, { useState, useContext } from 'react'
 import { HeaderContext } from '../Header';
-import HeaderBlocksList from '../HeaderBlocksList'
+import HeaderInput from '../HeaderInput'
 
-export default function FooterFour(props) {
+export default function HeaderFour(props) {
   const { 
-    headerBlocks,
+    headerHeading,
+    headerDescription,
+    headerSearchbar,
+    headerVideo,
   } = props;
-
+  
   const { handlePostHeaderData } = useContext(HeaderContext);
-  const [blocks, setBlocks] = useState(headerBlocks || []);
+
+  const [heading, setHeading] = useState(headerHeading || "");
+  const [description, setDescription] = useState(headerDescription || "");
+  const [videoURL, setVideoURL] = useState(headerVideo || "");
+  const [searchbarText, setSearchbarText] = useState(headerSearchbar || "");
+
   return (
     <>
-      <HeaderBlocksList 
-        blocks={blocks}
-        setBlocks={setBlocks}
-      />
+      <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
+      <HeaderInput state={description} setState={setDescription} label={"description"}/>
+      <HeaderInput state={videoURL} setState={setVideoURL} label={"Background Video URL"}/>
+      <HeaderInput state={searchbarText} setState={setSearchbarText} label={"Search Bar Text"}/>
       <br />
       <button 
           onClick={() => {
-              const dataTobeSent = {blocks};
-              handlePostHeaderData(dataTobeSent);
+            const dataTobeSent = {
+                heading, 
+                description,
+                videoURL,
+                searchbarText,
+            };
+            handlePostHeaderData(dataTobeSent);
       }}>
         Post Footer Data
       </button>
