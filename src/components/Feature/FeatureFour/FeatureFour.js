@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { FeatureContext } from '../Feature';
-import FeatureBlocksTypeThreeList from '../FeatureBlocksTypeThreeList'
+import FeatureBlocksTypeFourList from '../FeatureBlocksTypeFourList'
 
 export default function FeatureOne(props) {
   const { 
@@ -13,7 +13,7 @@ export default function FeatureOne(props) {
 
   return (
     <>
-      <FeatureBlocksTypeThreeList 
+      <FeatureBlocksTypeFourList 
         blocks={blocks}
         setBlocks={setBlocks}
       />

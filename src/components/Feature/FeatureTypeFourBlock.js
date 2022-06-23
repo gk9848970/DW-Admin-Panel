@@ -1,41 +1,25 @@
 import React from 'react'
-import CarouselBlockInput from './CarouselBlockInput'
+import FeatureBlockInput from './FeatureBlockInput'
 
-export default function CarouselTypeThreeBlock(props) {
+export default function FeatureTypeFourBlock(props) {
   const {
     id,
-    topline,
     heading,
     description,
-    imgURL,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
 
   return (
     <div>
-        <CarouselBlockInput 
-            labelName={"Topline"} 
-            inputName={"topline"}
-            value={topline}
-            blockID={id} 
-            handleChangePropertyBlock={handleChangePropertyBlock}
-        />
-        <CarouselBlockInput 
+        <FeatureBlockInput 
             labelName={"Heading"} 
             inputName={"heading"}
             value={heading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <CarouselBlockInput 
-            labelName={"Image Url"} 
-            inputName={"imgURL"}
-            value={imgURL}
-            blockID={id} 
-            handleChangePropertyBlock={handleChangePropertyBlock}
-        />
-        <CarouselBlockInput 
+        <FeatureBlockInput 
             labelName={"Description"} 
             inputName={"description"}
             value={description}
