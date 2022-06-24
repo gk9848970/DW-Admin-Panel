@@ -10,8 +10,6 @@ export default function CarouselTwo(props) {
   const { handlePostCarouselData } = useContext(CarouselContext);
   const [blocks, setBlocks] = useState(carouselBlocks || []);
 
-  console.log(blocks)
-
   return (
     <>
       <CarouselBlocksTypeTwoList 

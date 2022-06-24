@@ -4,6 +4,7 @@ import CarouselBlockInput from './CarouselBlockInput'
 export default function CarouselTypeOneBlock(props) {
   const {
     id,
+    heading,
     description,
     imgURL,
     handleChangePropertyBlock,
@@ -12,6 +13,13 @@ export default function CarouselTypeOneBlock(props) {
 
   return (
     <div>
+      <CarouselBlockInput 
+            labelName={"Description"} 
+            inputName={"heading"}
+            value={heading }
+            blockID={id} 
+            handleChangePropertyBlock={handleChangePropertyBlock}
+        />
         <CarouselBlockInput 
             labelName={"Image Url"} 
             inputName={"imgURL"}

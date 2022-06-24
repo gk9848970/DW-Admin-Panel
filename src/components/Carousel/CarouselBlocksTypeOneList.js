@@ -17,6 +17,7 @@ export default function CarouselBlocksTypeOneList({ blocks, setBlocks }) {
     function handleAddBlock() {
         const newBlock  = {
               id: uuidv4(),
+              heading: "",
               description: "Description",
               imgURL: "",
           }

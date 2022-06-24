@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import Feature from './components/Feature/Feature'
 import Testimonial from './components/Testimonial/Testimonial'
 import Carousel from './components/Carousel/Carousel'
+import Brand from './components/Brand/Brand'
 
 export const REST_ENPOINT = 'http://localhost:5500/adminPref/1';
 
@@ -37,6 +38,7 @@ export default function App() {
             <Feature feature={APIData.feature} />
             <Testimonial testimonial={APIData.testimonial} />
             <Carousel carousel={APIData.carousel} />
+            <Brand brand={APIData.brand} />
           </>
         :
           <div>Nooo</div>  
