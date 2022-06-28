@@ -1,8 +1,8 @@
 import React from 'react'
-import FeatureTypeFourBlock from './FeatureTypeFourBlock'
+import FeatureTypeThreeBlock from './FeatureTypeThreeBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function FeatureBlocksTypeFourList({ blocks, setBlocks }) {
+export default function FeatureBlocksTypeThreeList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -15,17 +15,21 @@ export default function FeatureBlocksTypeFourList({ blocks, setBlocks }) {
     }
 
     function handleAddBlock() {
+      if(blocks.length === 6) {
+        return;
+      }
         const newBlock  = {
               id: uuidv4(),
-              heading: "Heading",
-              description: "Description",
+              name: "Title",
+              description: "",
+              icon: "Image",
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <FeatureTypeFourBlock 
+        <FeatureTypeThreeBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

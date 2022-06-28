@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { FeatureContext } from '../Feature';
-import FeatureBlocksTypeFourList from '../FeatureBlocksTypeFourList'
+import FeatureBlocksTypeFourList from './FeatureBlocksTypeFourList'
 
-export default function FeatureOne(props) {
+export default function FeatureFour(props) {
   const { 
     featureBlocks
   } = props;

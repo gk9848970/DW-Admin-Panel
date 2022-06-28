@@ -46,6 +46,17 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
             text: "Link Name",
             linkURL: "link url",
         })
+
+        setBlocks(newBlocks);
+    }
+
+    function handleLinkInputChange(blockId, linkId, property, newValue) {
+        const newBlocks = [...blocks]
+        const indexBlock = newBlocks.findIndex(block => block.id === blockId);
+        const linkIndex = newBlocks[indexBlock].links.findIndex(link => link.id === linkId);
+        const linksModified = newBlocks[indexBlock].links[linkIndex];
+        linksModified[property] = newValue;
+
         setBlocks(newBlocks);
     }
 
@@ -54,9 +65,10 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
             key={block.id} 
             {...block} 
             handleDeleteBlock={handleDeleteBlock}
-            handleDeleteLink={handleDeleteLink}
-            handleAddLink={handleAddLink}
             handleChangePropertyBlock={handleChangePropertyBlock}
+            handleAddLink={handleAddLink}
+            handleDeleteLink={handleDeleteLink}
+            handleLinkInputChange={handleLinkInputChange}
         />
     )
     return (

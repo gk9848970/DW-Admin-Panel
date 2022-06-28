@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { CarouselContext } from '../Carousel';
-import CarouselBlocksTypeOneList from '../CarouselBlocksTypeOneList'
+import CarouselBlocksTypeOneList from './CarouselBlocksTypeOneList'
 
 export default function CarouselOne(props) {
   const { 

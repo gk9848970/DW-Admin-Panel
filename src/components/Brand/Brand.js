@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectBrand from './SelectBrand';
-import BrandShow from './BrandShow/BrandShow';
 import BrandHide from './BrandHide/BrandHide';
+
+import BrandOne from './BrandOne/BrandOne';
+import BrandTwo from './BrandTwo/BrandTwo';
+import BrandThree from './BrandThree/BrandThree';
+import BrandFour from './BrandFour/BrandFour';
 
 import { REST_ENPOINT } from '../../App';
 
 export const BrandContext = React.createContext();
 
 export default function Brand({ brand }) {
-    console.log(brand)
     const [brandInfo, setBrandInfo] = useState(brand);
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -52,13 +55,20 @@ export default function Brand({ brand }) {
         <BrandContext.Provider value={BrandContextValue}>
             <SelectBrand />
 
-            {brandInfo.brandType === 1 && 
-            <BrandShow
-                brandBlocks={brandInfo.brandData.blocks}
-            />}
-
             {brandInfo.brandType === 0 && 
-            <BrandHide />}
+            <BrandHide/>}
+    
+            {brandInfo.brandType === 1 && 
+            <BrandOne brandGrid={brandInfo.brandData.imageGrid} />}
+
+            {brandInfo.brandType === 2 && 
+            <BrandTwo brandGrid={brandInfo.brandData.imageGrid} />}
+
+            {brandInfo.brandType === 3 && 
+            <BrandThree brandGrid={brandInfo.brandData.imageGrid} />}
+
+            {brandInfo.brandType === 4 && 
+            <BrandFour brandGrid={brandInfo.brandData.imageGrid} />}
 
         </BrandContext.Provider>
     )

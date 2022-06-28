@@ -1,33 +1,33 @@
 import React from 'react'
-import CarouselBlockInput from './CarouselBlockInput'
+import TestimonialBlockInput from '../TestimonialBlockInput'
 
-export default function CarouselTypeOneBlock(props) {
+export default function TestimonialTypeTwoBlock(props) {
   const {
     id,
     heading,
     description,
-    imgURL,
+    subHeading,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
 
   return (
     <div>
-      <CarouselBlockInput 
-            labelName={"Description"} 
+        <TestimonialBlockInput 
+            labelName={"Heading"} 
             inputName={"heading"}
-            value={heading }
+            value={heading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <CarouselBlockInput 
-            labelName={"Image Url"} 
-            inputName={"imgURL"}
-            value={imgURL}
+        <TestimonialBlockInput 
+            labelName={"Sub Heading"} 
+            inputName={"subHeading"}
+            value={subHeading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <CarouselBlockInput 
+        <TestimonialBlockInput 
             labelName={"Description"} 
             inputName={"description"}
             value={description}

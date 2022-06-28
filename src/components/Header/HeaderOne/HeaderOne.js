@@ -32,11 +32,13 @@ export default function HeaderOne(props) {
       <button 
           onClick={() => {
             const dataTobeSent = {
-                topline, 
-                heading, 
-                description, 
-                button, 
-                imgURL
+                blocks: {
+                  topline, 
+                  heading, 
+                  description, 
+                  button, 
+                  imgURL,
+                }
             };
             handlePostHeaderData(dataTobeSent);
       }}>

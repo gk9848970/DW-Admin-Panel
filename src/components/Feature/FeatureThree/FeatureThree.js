@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { FeatureContext } from '../Feature';
-import FeatureBlocksTypeTwoList from '../FeatureBlocksTypeTwoList'
+import FeatureBlocksTypeThreeList from './FeatureBlocksTypeThreeList'
 
 export default function FeatureOne(props) {
   const { 
@@ -13,14 +13,21 @@ export default function FeatureOne(props) {
 
   return (
     <>
-      <FeatureBlocksTypeTwoList 
+      <FeatureBlocksTypeThreeList 
         blocks={blocks}
         setBlocks={setBlocks}
       />
       <br />
       <button 
           onClick={() => {
-            const dataTobeSent = { blocks };
+            // Modification in data as needed by frontend
+            const imgClassList = ['one', 'two', 'three', 'four', 'five', 'six'];
+            const blocksWithImgClass = [...blocks].map((block, index) => {
+              block.imgClass = imgClassList[index];
+              return block;
+            });
+
+            const dataTobeSent = { blocks: blocksWithImgClass};
             handlePostFeatureData(dataTobeSent);
       }}>
         Post Feature Data

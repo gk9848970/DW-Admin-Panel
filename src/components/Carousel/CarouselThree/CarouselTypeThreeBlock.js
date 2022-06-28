@@ -1,15 +1,13 @@
 import React from 'react'
-import CarouselBlockInput from './CarouselBlockInput'
-import CarouselBlockButton from './CarouselBlockButton'
+import CarouselBlockInput from '../CarouselBlockInput'
 
-export default function CarouselTypeTwoBlock(props) {
+export default function CarouselTypeThreeBlock(props) {
   const {
     id,
-    mainHeading,
+    topline,
     heading,
-    subHeading,
     description,
-    button,
+    imgURL,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
@@ -17,14 +15,14 @@ export default function CarouselTypeTwoBlock(props) {
   return (
     <div>
         <CarouselBlockInput 
-            labelName={"Image Url"} 
-            inputName={"mainHeading"}
-            value={mainHeading}
+            labelName={"Topline"} 
+            inputName={"topline"}
+            value={topline}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
         <CarouselBlockInput 
-            labelName={"Image Url"} 
+            labelName={"Heading"} 
             inputName={"heading"}
             value={heading}
             blockID={id} 
@@ -32,8 +30,8 @@ export default function CarouselTypeTwoBlock(props) {
         />
         <CarouselBlockInput 
             labelName={"Image Url"} 
-            inputName={"subHeading"}
-            value={subHeading}
+            inputName={"imgURL"}
+            value={imgURL}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
@@ -42,11 +40,6 @@ export default function CarouselTypeTwoBlock(props) {
             inputName={"description"}
             value={description}
             blockID={id} 
-            handleChangePropertyBlock={handleChangePropertyBlock}
-        />
-        <CarouselBlockButton
-            blockID={id} 
-            button={button || {text: "", btnURL: "" }} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
         <button onClick={() => handleDeleteBlock(id)}>Delete Block</button>

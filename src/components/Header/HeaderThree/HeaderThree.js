@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { HeaderContext } from '../Header';
-import HeaderBlocksList from '../HeaderBlocksList'
+import HeaderBlocksList from './HeaderBlocksList'
 
-export default function FooterThree(props) {
+export default function HeaderThree(props) {
   const { 
     headerBlocks,
   } = props;
 
   const { handlePostHeaderData } = useContext(HeaderContext);
-  const [blocks, setBlocks] = useState(headerBlocks || []);
+
+  let isArray = headerBlocks instanceof Array ? true : false;
+  const [blocks, setBlocks] = useState(isArray ? headerBlocks : []);
+  
   return (
     <>
       <HeaderBlocksList 
@@ -21,7 +24,7 @@ export default function FooterThree(props) {
               const dataTobeSent = {blocks};
               handlePostHeaderData(dataTobeSent);
       }}>
-        Post Footer Data
+        Post Header Data
       </button>
     </>
   )

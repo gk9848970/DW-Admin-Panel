@@ -12,8 +12,6 @@ export default function HeaderTwo(props) {
     headerImage,
   } = props;
 
-  console.log(props);
-
   const { handlePostHeaderData } = useContext(HeaderContext);
 
   const [heading, setHeading] = useState(headerHeading || "");
@@ -34,11 +32,13 @@ export default function HeaderTwo(props) {
       <button 
           onClick={() => {
             const dataTobeSent = {
-                heading, 
-                description, 
-                buttonOne,
-                buttonTwo, 
-                imgURL,
+                blocks: {
+                    heading, 
+                    description, 
+                    buttonOne,
+                    buttonTwo, 
+                    imgURL,
+                }
             };
             handlePostHeaderData(dataTobeSent);
       }}>

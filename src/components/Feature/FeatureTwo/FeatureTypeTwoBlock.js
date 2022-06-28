@@ -1,9 +1,10 @@
 import React from 'react'
-import TestimonialBlockInput from './TestimonialBlockInput'
+import FeatureBlockInput from '../FeatureBlockInput'
 
-export default function TestimonialTypeThreeBlock(props) {
+export default function FeatureTypeTwoBlock(props) {
   const {
     id,
+    heading,
     description,
     imgURL,
     handleChangePropertyBlock,
@@ -12,17 +13,24 @@ export default function TestimonialTypeThreeBlock(props) {
 
   return (
     <div>
-        <TestimonialBlockInput 
-            labelName={"Image Url"} 
-            inputName={"imgURL"}
-            value={imgURL}
+        <FeatureBlockInput 
+            labelName={"Heading"} 
+            inputName={"heading"}
+            value={heading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <TestimonialBlockInput 
+        <FeatureBlockInput 
             labelName={"Description"} 
             inputName={"description"}
             value={description}
+            blockID={id} 
+            handleChangePropertyBlock={handleChangePropertyBlock}
+        />
+        <FeatureBlockInput 
+            labelName={"Image Url"} 
+            inputName={"imgURL"}
+            value={imgURL}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />

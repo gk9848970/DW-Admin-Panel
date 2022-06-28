@@ -1,44 +1,37 @@
 import React from 'react'
-import CarouselBlockInput from './CarouselBlockInput'
-import CarouselBlockButton from './CarouselBlockButton'
+import TestimonialBlockInput from '../TestimonialBlockInput'
 
-export default function CarouselTypeFourBlock(props) {
+export default function TestimonialTypeOneBlock(props) {
   const {
     id,
     heading,
-    subHeading,
     description,
-    button,
+    imgURL,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
 
   return (
     <div>
-        <CarouselBlockInput 
+        <TestimonialBlockInput 
             labelName={"Heading"} 
             inputName={"heading"}
             value={heading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <CarouselBlockInput 
-            labelName={"Image Url"} 
-            inputName={"subHeading"}
-            value={subHeading}
-            blockID={id} 
-            handleChangePropertyBlock={handleChangePropertyBlock}
-        />
-        <CarouselBlockInput 
+        <TestimonialBlockInput 
             labelName={"Description"} 
             inputName={"description"}
             value={description}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
-        <CarouselBlockButton
+        <TestimonialBlockInput 
+            labelName={"Image Url"} 
+            inputName={"imgURL"}
+            value={imgURL}
             blockID={id} 
-            button={button || {text: "", btnURL: "" }} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
         <button onClick={() => handleDeleteBlock(id)}>Delete Block</button>

@@ -9,6 +9,7 @@ import Feature from './components/Feature/Feature'
 import Testimonial from './components/Testimonial/Testimonial'
 import Carousel from './components/Carousel/Carousel'
 import Brand from './components/Brand/Brand'
+import Form from './components/Form/Form'
 
 export const REST_ENPOINT = 'http://localhost:5500/adminPref/1';
 
@@ -39,6 +40,7 @@ export default function App() {
             <Testimonial testimonial={APIData.testimonial} />
             <Carousel carousel={APIData.carousel} />
             <Brand brand={APIData.brand} />
+            <Form form={APIData.form} />
           </>
         :
           <div>Nooo</div>  

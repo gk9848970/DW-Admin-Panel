@@ -10,6 +10,7 @@ export default function FooterBlock(props) {
     handleDeleteBlock,
     handleDeleteLink,
     handleAddLink,
+    handleLinkInputChange,
   } = props;
 
   const linkElements = links.map(link => 
@@ -18,6 +19,7 @@ export default function FooterBlock(props) {
       {...link} 
       blockId={id} 
       handleDeleteLink={handleDeleteLink}
+      handleLinkInputChange={handleLinkInputChange}
     />
   )
 

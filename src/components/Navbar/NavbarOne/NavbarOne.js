@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { NavbarContext } from '../Navbar';
 import NavbarLinksList from '../NavbarLinksList'
-import NavbarLogo from '../NavbarLogo'
+import NavbarInput from '../NavbarInput'
 
 export default function NavbarOne({ navbarLinks, navbarLogo }) {
     const { handlePostNavbarData } = useContext(NavbarContext);
@@ -15,7 +15,7 @@ export default function NavbarOne({ navbarLinks, navbarLogo }) {
                 setLinks={setLinks}
             />
             <br />
-            <NavbarLogo logoImgURL={logoImgURL} setLogoImgURL={setLogoImgURL} />
+            <NavbarInput state={logoImgURL} setState={setLogoImgURL} label={"Navbar Logo"}/>
             <button 
                 onClick={() => {
                     const dataTobeSent = {links, logoImgURL};

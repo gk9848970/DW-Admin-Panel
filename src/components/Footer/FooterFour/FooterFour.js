@@ -8,7 +8,9 @@ export default function FooterFour(props) {
   const {
     footerHeading,
     footerSubHeading,
-    footerBlocks, 
+    // footerLogoLink,
+    footerCopyright,
+    footerBlocks,
     footerSocialLinks,
   } = props;
 
@@ -16,6 +18,8 @@ export default function FooterFour(props) {
 
   const [heading, setHeading] = useState(footerHeading || "");
   const [subHeading, setSubHeading] = useState(footerSubHeading || "");
+  // const [logoLink, setLogoLink] = useState(footerLogoLink || "");
+  const [copyright, setCopyright] = useState(footerCopyright || "");
   const [blocks, setBlocks] = useState(footerBlocks || []);
   const [socialLinks, setSocialLinks] = useState(footerSocialLinks || 
     {
@@ -35,12 +39,21 @@ export default function FooterFour(props) {
       <br />
       <FooterInput state={heading} setState={setHeading} label={"Heading"}/>
       <FooterInput state={subHeading} setState={setSubHeading} label={"Sub Heading"}/>
+      {/* <FooterInput state={logoLink} setState={setLogoLink} label={"Logo Click Url"}/> */}
+      <FooterInput state={copyright} setState={setCopyright} label={"Copyright"}/>
       <br />
       <FooterSocialLinksList socialLinks={socialLinks} setSocialLinks={setSocialLinks}/>
       <br />
       <button 
           onClick={() => {
-              const dataTobeSent = {heading, subHeading, blocks, socialLinks};
+              const dataTobeSent = {
+                heading, 
+                subHeading,
+                // logoLink,
+                copyright,
+                blocks, 
+                socialLinks
+              };
               handlePostFooterData(dataTobeSent);
       }}>
         Post Footer Data

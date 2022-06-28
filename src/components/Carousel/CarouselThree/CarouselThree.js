@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { CarouselContext } from '../Carousel';
-import CarouselBlocksTypeThreeList from '../CarouselBlocksTypeThreeList'
+import CarouselBlocksTypeThreeList from './CarouselBlocksTypeThreeList'
 
 export default function CarouselOne(props) {
   const { 
@@ -19,7 +19,15 @@ export default function CarouselOne(props) {
       <br />
       <button 
           onClick={() => {
-            const dataTobeSent = { blocks };
+            const newBlocks = [...blocks];
+
+            newBlocks.forEach((block, index) => {
+              if(index%2 === 0) {
+                block.reverse = true;
+              }
+            })
+
+            const dataTobeSent = { blocks: newBlocks };
             handlePostCarouselData(dataTobeSent);
       }}>
         Post Carousel Data

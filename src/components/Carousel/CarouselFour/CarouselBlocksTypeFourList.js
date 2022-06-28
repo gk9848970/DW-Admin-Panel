@@ -1,8 +1,8 @@
 import React from 'react'
-import FeatureTypeTwoBlock from './FeatureTypeTwoBlock'
+import CarouselTypeFourBlock from './CarouselTypeFourBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function FeatureBlocksTypeTwoList({ blocks, setBlocks }) {
+export default function CarouselBlocksTypeFourList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -15,20 +15,20 @@ export default function FeatureBlocksTypeTwoList({ blocks, setBlocks }) {
     }
 
     function handleAddBlock() {
-      if(blocks.length === 6) {
-        return;
-      }
         const newBlock  = {
               id: uuidv4(),
-              title: "Title",
-              imgURL: "Image",
+              heading: "",
+              subHeading: "",
+              imgURL: "",
+              description: "Description",
+              button: {text: "", btnURL: "" },
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <FeatureTypeTwoBlock 
+        <CarouselTypeFourBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

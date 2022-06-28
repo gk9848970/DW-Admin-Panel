@@ -7,6 +7,7 @@ export default function FooterLink(props) {
     text,
     linkURL,
     handleDeleteLink,
+    handleLinkInputChange,
   } = props;
 
   return (
@@ -16,12 +17,14 @@ export default function FooterLink(props) {
           type="text"
           name="linkName" 
           defaultValue={text}
+          onChange={e => handleLinkInputChange(blockId, id, "text", e.target.value)}
       />
       <label>Link Url</label>
       <input 
           type="text"
           name="linkName" 
           defaultValue={linkURL}
+          onChange={e => handleLinkInputChange(blockId, id, "linkURL", e.target.value)}
       />
       <button onClick={() => handleDeleteLink(blockId, id)}>Delete Link</button>
     </div>

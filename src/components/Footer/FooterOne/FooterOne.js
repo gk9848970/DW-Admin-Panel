@@ -8,6 +8,7 @@ export default function FooterOne(props) {
   const { 
     footerBlocks, 
     footerLogo,
+    footerLogoLink,
     footerAddress,
     footerCopyright,
     footerSocialLinks,
@@ -16,6 +17,7 @@ export default function FooterOne(props) {
   const { handlePostFooterData } = useContext(FooterContext);
   const [blocks, setBlocks] = useState(footerBlocks || []);
   const [logoImgURL, setLogoImgURL] = useState(footerLogo || "");
+  const [logoLink, setLogoLink] = useState(footerLogoLink || "");
   const [address, setAddress] = useState(footerAddress || "");
   const [copyright, setCopyright] = useState(footerCopyright || "");
   const [socialLinks, setSocialLinks] = useState(footerSocialLinks || 
@@ -34,7 +36,8 @@ export default function FooterOne(props) {
         setBlocks={setBlocks}
       />
       <br />
-      <FooterInput state={logoImgURL} setState={setLogoImgURL} label={"Logo"}/>
+      <FooterInput state={logoImgURL} setState={setLogoImgURL} label={"Logo Image"}/>
+      <FooterInput state={logoLink} setState={setLogoLink} label={"Logo Click Url"}/>
       <FooterInput state={address} setState={setAddress} label={"Address"}/>
       <FooterInput state={copyright} setState={setCopyright} label={"Copyright"}/>
       <br />
@@ -42,7 +45,14 @@ export default function FooterOne(props) {
       <br />
       <button 
           onClick={() => {
-              const dataTobeSent = {blocks, logoImgURL, address, copyright, socialLinks};
+              const dataTobeSent = {
+                blocks, 
+                logoImgURL, 
+                logoLink, 
+                address, 
+                copyright, 
+                socialLinks
+              };
               handlePostFooterData(dataTobeSent);
       }}>
         Post Footer Data

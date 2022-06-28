@@ -1,12 +1,11 @@
 import React from 'react'
-import FeatureBlockInput from './FeatureBlockInput'
+import FeatureBlockInput from '../FeatureBlockInput'
 
-export default function FeatureTypeOneBlock(props) {
+export default function FeatureTypeFourBlock(props) {
   const {
     id,
     heading,
     description,
-    imgURL,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
@@ -24,13 +23,6 @@ export default function FeatureTypeOneBlock(props) {
             labelName={"Description"} 
             inputName={"description"}
             value={description}
-            blockID={id} 
-            handleChangePropertyBlock={handleChangePropertyBlock}
-        />
-        <FeatureBlockInput 
-            labelName={"Image Url"} 
-            inputName={"imgURL"}
-            value={imgURL}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />

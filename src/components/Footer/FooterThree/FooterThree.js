@@ -11,7 +11,9 @@ export default function FooterThree(props) {
     footerSubHeading,
     footerBlocks,
     footerLogo,
+    footerLogoLink,
     footerCopyright,
+    footerPlaceholderText,
     footerSocialLinks,
     footerButton,
   } = props;
@@ -22,7 +24,9 @@ export default function FooterThree(props) {
   const [subHeading, setSubHeading] = useState(footerSubHeading || "");
   const [blocks, setBlocks] = useState(footerBlocks || []);
   const [logoImgURL, setLogoImgURL] = useState(footerLogo || "");
+  const [logoLink, setLogoLink] = useState(footerLogoLink || "");
   const [copyright, setCopyright] = useState(footerCopyright || "");
+  const [placeholderText, setPlaceholderText] = useState(footerPlaceholderText || "");
   const [button, setButton] = useState(footerButton || {text: "", btnURL: "" });
   const [socialLinks, setSocialLinks] = useState(footerSocialLinks || 
     {
@@ -44,7 +48,9 @@ export default function FooterThree(props) {
       <FooterInput state={heading} setState={setHeading} label={"Heading"}/>
       <FooterInput state={subHeading} setState={setSubHeading} label={"Sub Heading"}/>
       <FooterInput state={logoImgURL} setState={setLogoImgURL} label={"Logo"}/>
+      <FooterInput state={logoLink} setState={setLogoLink} label={"Logo Click Url"}/>
       <FooterInput state={copyright} setState={setCopyright} label={"Copyright"}/>
+      <FooterInput state={placeholderText} setState={setPlaceholderText} label={"Placeholder Text"}/>
       <br />
       <FooterButton button={button} setButton={setButton} />
       <br />
@@ -56,8 +62,10 @@ export default function FooterThree(props) {
                 heading, 
                 subHeading, 
                 blocks, 
-                logoImgURL, 
+                logoImgURL,
+                logoLink,
                 copyright, 
+                placeholderText, 
                 button,
                 socialLinks,
               };

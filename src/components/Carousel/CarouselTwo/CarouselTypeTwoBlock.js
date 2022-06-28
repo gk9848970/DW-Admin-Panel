@@ -1,13 +1,15 @@
 import React from 'react'
-import CarouselBlockInput from './CarouselBlockInput'
+import CarouselBlockInput from '../CarouselBlockInput'
+import CarouselBlockButton from '../CarouselBlockButton'
 
-export default function CarouselTypeThreeBlock(props) {
+export default function CarouselTypeTwoBlock(props) {
   const {
     id,
-    topline,
+    mainHeading,
     heading,
+    subHeading,
     description,
-    imgURL,
+    button,
     handleChangePropertyBlock,
     handleDeleteBlock,
   } = props;
@@ -15,9 +17,9 @@ export default function CarouselTypeThreeBlock(props) {
   return (
     <div>
         <CarouselBlockInput 
-            labelName={"Topline"} 
-            inputName={"topline"}
-            value={topline}
+            labelName={"Main Heading"} 
+            inputName={"mainHeading"}
+            value={mainHeading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
@@ -29,9 +31,9 @@ export default function CarouselTypeThreeBlock(props) {
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
         <CarouselBlockInput 
-            labelName={"Image Url"} 
-            inputName={"imgURL"}
-            value={imgURL}
+            labelName={"Sub Heading"} 
+            inputName={"subHeading"}
+            value={subHeading}
             blockID={id} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
@@ -40,6 +42,11 @@ export default function CarouselTypeThreeBlock(props) {
             inputName={"description"}
             value={description}
             blockID={id} 
+            handleChangePropertyBlock={handleChangePropertyBlock}
+        />
+        <CarouselBlockButton
+            blockID={id} 
+            button={button || {text: "", btnURL: "" }} 
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
         <button onClick={() => handleDeleteBlock(id)}>Delete Block</button>

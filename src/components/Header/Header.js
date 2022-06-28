@@ -53,21 +53,21 @@ export default function Header({ header }) {
             <SelectHeader />
 
             {headerInfo.headerType === 1 && 
-            <HeaderOne 
-                headerTopline={headerInfo.headerData.topline} 
-                headerHeading={headerInfo.headerData.heading}
-                headerDescription={headerInfo.headerData.description}
-                headerButton={headerInfo.headerData.button}
-                headerImage={headerInfo.headerData.imgURL}
+            <HeaderOne
+                headerTopline={headerInfo.headerData.blocks.topline} 
+                headerHeading={headerInfo.headerData.blocks.heading}
+                headerDescription={headerInfo.headerData.blocks.description}
+                headerButton={headerInfo.headerData.blocks.button}
+                headerImage={headerInfo.headerData.blocks.imgURL}
             />}
 
             {headerInfo.headerType === 2 && 
             <HeaderTwo 
-                headerHeading={headerInfo.headerData.heading}
-                headerDescription={headerInfo.headerData.description}
-                headerButtonOne={headerInfo.headerData.buttonOne}
-                hedaerButtonTwo={headerInfo.headerData.buttonTwo}
-                headerImage={headerInfo.headerData.imgURL}
+                headerHeading={headerInfo.headerData.blocks.heading}
+                headerDescription={headerInfo.headerData.blocks.description}
+                headerButtonOne={headerInfo.headerData.blocks.buttonOne}
+                hedaerButtonTwo={headerInfo.headerData.blocks.buttonTwo}
+                headerImage={headerInfo.headerData.blocks.imgURL}
             />}
 
             {headerInfo.headerType === 3 && 
@@ -77,10 +77,10 @@ export default function Header({ header }) {
             
             {headerInfo.headerType === 4 && 
             <HeaderFour 
-                headerHeading={headerInfo.headerData.heading}
-                headerDescription={headerInfo.headerData.description}
-                headerSearchbar={headerInfo.headerData.searchbarText}
-                headerVideo={headerInfo.headerData.videoURL} 
+                headerHeading={headerInfo.headerData.blocks.heading}
+                headerDescription={headerInfo.headerData.blocks.description}
+                headerSearchbar={headerInfo.headerData.blocks.searchbarText}
+                headerImage={headerInfo.headerData.blocks.imgURL} 
             />}
 
         </HeaderContext.Provider>

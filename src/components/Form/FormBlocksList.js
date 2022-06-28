@@ -1,8 +1,8 @@
 import React from 'react'
-import CarouselTypeFourBlock from './CarouselTypeFourBlock'
+import FormBlock from './FormBlock'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function CarouselBlocksTypeFourList({ blocks, setBlocks }) {
+export default function FormBlocksList({ blocks, setBlocks }) {
     function handleChangePropertyBlock(id, property, newValue) {
         const newBlocks = [...blocks];
         const index = newBlocks.findIndex(block => block.id === id);
@@ -17,18 +17,16 @@ export default function CarouselBlocksTypeFourList({ blocks, setBlocks }) {
     function handleAddBlock() {
         const newBlock  = {
               id: uuidv4(),
-              mainHeading: "",
-              heading: "",
-              subHeading: "",
-              description: "Description",
-              button: {text: "", btnURL: "" },
+              labelText: "",
+              placeholderText: "",
+              type: "text", // Static fixed Field
           }
 
         setBlocks([...blocks, newBlock]);
     }
 
     const blockElements = blocks.map(block => 
-        <CarouselTypeFourBlock 
+        <FormBlock 
             key={block.id}
             {...block} 
             handleDeleteBlock={handleDeleteBlock}

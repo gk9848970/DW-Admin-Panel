@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { TestimonialContext } from '../Testimonial';
-import TestimonialBlocksTypeOneList from '../TestimonialBlocksTypeOneList'
+import TestimonialBlocksTypeOneList from './TestimonialBlocksTypeOneList'
 
 export default function TestimonialOne(props) {
   const { 

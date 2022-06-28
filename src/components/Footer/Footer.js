@@ -56,6 +56,7 @@ export default function Footer({ footer }) {
             <FooterOne 
                 footerBlocks={footer.footerData.blocks}
                 footerLogo={footer.footerData.logoImgURL}
+                footerLogoLink={footer.footerData.logoLink}
                 footerAddress={footer.footerData.address}
                 footerCopyright={footer.footerData.copyright}
                 footerSocialLinks={footer.footerData.socialLinks}
@@ -65,6 +66,8 @@ export default function Footer({ footer }) {
             <FooterTwo 
                 footerBlocks={footer.footerData.blocks}
                 footerLogo={footer.footerData.logoImgURL}
+                footerLogoLink={footer.footerData.logoLink}
+                footerPlaceholderText={footer.footerData.placeholderText}
                 footerAddress={footer.footerData.address}
                 footerCopyright={footer.footerData.copyright}
                 footerSocialLinks={footer.footerData.socialLinks}
@@ -77,8 +80,9 @@ export default function Footer({ footer }) {
             <FooterThree 
                 footerBlocks={footer.footerData.blocks}
                 footerLogo={footer.footerData.logoImgURL}
-                footerAddress={footer.footerData.address}
+                footerLogoLink={footer.footerData.logoLink}
                 footerCopyright={footer.footerData.copyright}
+                footerPlaceholderText={footer.footerData.placeholderText}
                 footerSocialLinks={footer.footerData.socialLinks}
                 footerHeading={footer.footerData.heading}
                 footerSubHeading={footer.footerData.subHeading}
@@ -90,7 +94,8 @@ export default function Footer({ footer }) {
                 footerBlocks={footer.footerData.blocks}
                 footerSocialLinks={footer.footerData.socialLinks}
                 footerHeading={footer.footerData.heading}
-                footerSubHeading={footer.footerData.subHeading} 
+                footerSubHeading={footer.footerData.subHeading}
+                footerCopyright={footer.footerData.copyright}
             />}
 
         </FooterContext.Provider>

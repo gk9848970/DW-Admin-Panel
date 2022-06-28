@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { FeatureContext } from '../Feature';
-import FeatureBlocksTypeOneList from '../FeatureBlocksTypeOneList'
+import FeatureBlocksTypeTwoList from './FeatureBlocksTypeTwoList'
 
 export default function FeatureTwo(props) {
   const { 
@@ -10,10 +10,9 @@ export default function FeatureTwo(props) {
   const { handlePostFeatureData } = useContext(FeatureContext);
   const [blocks, setBlocks] = useState(featureBlocks || []);
 
-
   return (
     <>
-      <FeatureBlocksTypeOneList 
+      <FeatureBlocksTypeTwoList 
         blocks={blocks}
         setBlocks={setBlocks}
       />
