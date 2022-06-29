@@ -70,7 +70,6 @@ export default function Navbar({ navbar }) {
                 navbarLinks={navbar.navbarData.links}
                 navbarLogo={navbar.navbarData.logoImgURL}
                 navbarButton={navbar.navbarData.button}
-                navbarSearchText={navbar.navbarData.searchText}
             />}
             
             {navbarInfo.navbarType === 4 && 

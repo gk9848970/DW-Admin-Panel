@@ -8,14 +8,12 @@ export default function NavbarThree(props) {
     const { 
         navbarLinks, 
         navbarLogo, 
-        navbarSearchText, 
         navbarButton 
     } = props;
 
     const { handlePostNavbarData } = useContext(NavbarContext);
     const [links, setLinks] = useState(navbarLinks);
     const [logoImgURL, setLogoImgURL] = useState(navbarLogo);
-    const [searchText, setSearchText] = useState(navbarSearchText || "");
     const [button, setButton] = useState(navbarButton || {text: "", btnURL: "" });
     
     return (
@@ -26,11 +24,10 @@ export default function NavbarThree(props) {
             />
             <br />
             <NavbarInput state={logoImgURL} setState={setLogoImgURL} label={"Logo URL"}/>
-            <NavbarInput state={searchText} setState={setSearchText} label={"Search Bar Placeholder"}/>
             <NavbarButton button={button} setButton={setButton} />
             <button 
                 onClick={() => {
-                    const dataTobeSent = {links, logoImgURL, searchText, button};
+                    const dataTobeSent = {links, logoImgURL, button};
                     console.log(dataTobeSent);
                     handlePostNavbarData(dataTobeSent);
                 }}
