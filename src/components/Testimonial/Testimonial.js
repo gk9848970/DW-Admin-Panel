@@ -53,16 +53,20 @@ export default function Testimonial({ testimonial }) {
 
             {testimonialInfo.testimonialType === 1 && 
             <TestimonialOne
+                testimonialTitle={testimonialInfo.testimonialData.title}
                 testimonialBlocks={testimonialInfo.testimonialData.blocks}
             />}
 
             {testimonialInfo.testimonialType === 2 && 
             <TestimonialTwo
+                testimonialTitle={testimonialInfo.testimonialData.title}
+                testimonialDescription={testimonialInfo.testimonialData.description}
                 testimonialBlocks={testimonialInfo.testimonialData.blocks}
             />}
 
             {testimonialInfo.testimonialType === 3 && 
             <TestimonialThree
+                testimonialTitle={testimonialInfo.testimonialData.title}
                 testimonialBlocks={testimonialInfo.testimonialData.blocks}
             />}
 

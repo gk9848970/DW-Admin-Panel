@@ -55,21 +55,26 @@ export default function Carousel({ carousel }) {
 
             {carouselInfo.carouselType === 1 && 
             <CarouselOne
+                carouselTitle={carouselInfo.carouselData.title}
                 carouselBlocks={carouselInfo.carouselData.blocks}
             />}
 
             {carouselInfo.carouselType === 2 && 
             <CarouselTwo
+                carouselTitle={carouselInfo.carouselData.title}
+                carouselDescription={carouselInfo.carouselData.description}
                 carouselBlocks={carouselInfo.carouselData.blocks}
             />}
 
             {carouselInfo.carouselType === 3 && 
             <CarouselThree
+                carouselTitle={carouselInfo.carouselData.title}
                 carouselBlocks={carouselInfo.carouselData.blocks}
             />}
 
             {carouselInfo.carouselType === 4 && 
             <CarouselFour
+                carouselTitle={carouselInfo.carouselData.title}
                 carouselBlocks={carouselInfo.carouselData.blocks}
             />}
 

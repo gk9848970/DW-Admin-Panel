@@ -1,14 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { CarouselContext } from '../Carousel';
 import CarouselBlocksTypeThreeList from './CarouselBlocksTypeThreeList'
+import CarouselInput from '../CarouselInput'
 
 export default function CarouselOne(props) {
-  const { 
+  const {
+    carouselTitle, 
     carouselBlocks
   } = props;
   
   const { handlePostCarouselData } = useContext(CarouselContext);
   const [blocks, setBlocks] = useState(carouselBlocks || []);
+  const [title, setTitle] = useState(carouselTitle || "");
 
   return (
     <>
@@ -16,6 +19,8 @@ export default function CarouselOne(props) {
         blocks={blocks}
         setBlocks={setBlocks}
       />
+      <br />
+      <CarouselInput state={title} setState={setTitle} label={"Title"}/>
       <br />
       <button 
           onClick={() => {
@@ -27,7 +32,7 @@ export default function CarouselOne(props) {
               }
             })
 
-            const dataTobeSent = { blocks: newBlocks };
+            const dataTobeSent = { blocks: newBlocks, title };
             handlePostCarouselData(dataTobeSent);
       }}>
         Post Carousel Data

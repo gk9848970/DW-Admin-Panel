@@ -1,9 +1,16 @@
 import React, { useState, useContext } from 'react'
 import { BrandContext } from '../Brand';
 import BrandImageInput from '../BrandImageInput'
+import BrandInput from '../BrandInput'
 import { v4 as uuidv4 } from 'uuid';
 
-export default function BrandFour({ brandGrid }) {
+export default function BrandFour(props) {
+  const {
+    brandTitle,
+    brandDescription,
+    brandGrid, 
+  } = props;
+
   const { handlePostBrandData } = useContext(BrandContext);
 
   // 5 Columns, Structure {1, 2, 3, 2, 1}
@@ -21,6 +28,8 @@ export default function BrandFour({ brandGrid }) {
     structureIsSame ? 
     brandGrid : gridStructure
   );
+  const [title, setTitle] = useState(brandTitle || "");
+  const [description, setDescription] = useState(brandDescription || "");
 
   function isProperStructure(gridStructure, brandGrid) {
     if(brandGrid == null) {
@@ -77,9 +86,12 @@ export default function BrandFour({ brandGrid }) {
     <div>
       {imageElementsSpreadOut}
       <br />
+      <BrandInput state={title} setState={setTitle} label={"Title"}/>
+      <BrandInput state={description} setState={setDescription} label={"Description"}/>
+      <br />
       <button 
           onClick={() => {
-            const dataTobeSent = { imageGrid };
+            const dataTobeSent = { imageGrid, title, description };
             handlePostBrandData(dataTobeSent);
       }}>
         Post Brand Data

@@ -59,16 +59,32 @@ export default function Brand({ brand }) {
             <BrandHide/>}
     
             {brandInfo.brandType === 1 && 
-            <BrandOne brandGrid={brandInfo.brandData.imageGrid} />}
+            <BrandOne
+                brandTitle={brandInfo.brandData.title}
+                brandDescription={brandInfo.brandData.description}
+                brandGrid={brandInfo.brandData.imageGrid} 
+            />}
 
             {brandInfo.brandType === 2 && 
-            <BrandTwo brandGrid={brandInfo.brandData.imageGrid} />}
+            <BrandTwo
+                brandTitle={brandInfo.brandData.title}
+                brandDescription={brandInfo.brandData.description}
+                brandGrid={brandInfo.brandData.imageGrid} 
+            />}
 
             {brandInfo.brandType === 3 && 
-            <BrandThree brandGrid={brandInfo.brandData.imageGrid} />}
+            <BrandThree
+                brandTitle={brandInfo.brandData.title}
+                brandDescription={brandInfo.brandData.description}
+                brandGrid={brandInfo.brandData.imageGrid} 
+            />}
 
             {brandInfo.brandType === 4 && 
-            <BrandFour brandGrid={brandInfo.brandData.imageGrid} />}
+            <BrandFour
+                brandTitle={brandInfo.brandData.title}
+                brandDescription={brandInfo.brandData.description}
+                brandGrid={brandInfo.brandData.imageGrid} 
+            />}
 
         </BrandContext.Provider>
     )

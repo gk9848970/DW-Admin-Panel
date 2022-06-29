@@ -54,21 +54,25 @@ export default function Feature({ feature }) {
 
             {featureInfo.featureType === 1 && 
             <FeatureOne
+                featureTitle={featureInfo.featureData.title}
                 featureBlocks={featureInfo.featureData.blocks}
             />}
 
             {featureInfo.featureType === 2 && 
             <FeatureTwo
+                featureTitle={featureInfo.featureData.title}
                 featureBlocks={featureInfo.featureData.blocks}
             />}
 
             {featureInfo.featureType === 3 && 
             <FeatureThree
+                featureTitle={featureInfo.featureData.title}
                 featureBlocks={featureInfo.featureData.blocks}
             />}
             
             {featureInfo.featureType === 4 && 
             <FeatureFour
+                featureTitle={featureInfo.featureData.title}
                 featureBlocks={featureInfo.featureData.blocks}
             />}
 

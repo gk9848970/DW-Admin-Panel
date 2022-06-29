@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { FeatureContext } from '../Feature';
 import FeatureBlocksTypeThreeList from './FeatureBlocksTypeThreeList'
+import FeatureInput from '../FeatureInput'
 
 export default function FeatureOne(props) {
-  const { 
+  const {
+    featureTitle,
     featureBlocks
   } = props;
   
   const { handlePostFeatureData } = useContext(FeatureContext);
   const [blocks, setBlocks] = useState(featureBlocks || []);
-
+  const [title, setTitle] = useState(featureTitle || "");
 
   return (
     <>
@@ -17,6 +19,8 @@ export default function FeatureOne(props) {
         blocks={blocks}
         setBlocks={setBlocks}
       />
+      <br />
+      <FeatureInput state={title} setState={setTitle} label={"Title"}/>
       <br />
       <button 
           onClick={() => {
@@ -27,7 +31,7 @@ export default function FeatureOne(props) {
               return block;
             });
 
-            const dataTobeSent = { blocks: blocksWithImgClass};
+            const dataTobeSent = { blocks: blocksWithImgClass, title};
             handlePostFeatureData(dataTobeSent);
       }}>
         Post Feature Data
