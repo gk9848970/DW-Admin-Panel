@@ -19,10 +19,10 @@ import Form from './components/Form/Form'
 // Get by "Domain"
 // export const REST_ENPOINT = 'http://localhost:5500/getAllData';
 
-const REST_ENPOINT_GET_DATA = 'http://localhost:5500/getInitialData';
+const REST_ENPOINT_GET_DATA = 'https://speedlabs-server-host.herokuapp.com/getInitialData';
 
 export const REST_ENPOINT_POST_EMAIL = "messi@leo.com";
-export const REST_ENPOINT_POST_DATA = 'http://localhost:5500/adminPref';
+export const REST_ENPOINT_POST_DATA = 'https://speedlabs-server-host.herokuapp.com/adminPref';
 
 export default function App() {
   const [APIData, setAPIData] = useState(null);
