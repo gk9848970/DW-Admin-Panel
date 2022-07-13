@@ -1,0 +1,26 @@
+.btn {
+    outline: none;
+    border: none;
+
+    display: block;
+    padding: .95rem 2.5rem;
+
+    font-size: var(--font-3);
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+}
+
+.btn--purple {
+    background: var(--color-primary);
+    color: var(--color-bg-light);
+}
+
+.btn--green {
+    background: var(--color-secondary);
+    color: var(--color-bg-light);
+}
+
+.btn--red {
+    background: var(--color-bg-light);
+    color: var(--color-tertiary)
+}

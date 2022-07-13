@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectFooter from './SelectFooter';
+import FooterHide from './FooterHide/FooterHide';
 import FooterOne from './FooterOne/FooterOne';
 import FooterTwo from './FooterTwo/FooterTwo';
 import FooterThree from './FooterThree/FooterThree';
 import FooterFour from './FooterFour/FooterFour';
-import { REST_ENPOINT } from '../../App';
+
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const FooterContext = React.createContext();
 
@@ -28,8 +31,11 @@ export default function Footer({ footer }) {
     function handlePostFooterData(data) {
         const newFooterInfo = {...footerInfo, footerData: data}
 
-        axios.post(REST_ENPOINT, {
-            footer: newFooterInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                footer: newFooterInfo,
+            }
         })
         .then(res => {
             console.log(res);
@@ -50,7 +56,11 @@ export default function Footer({ footer }) {
 
     return (
         <FooterContext.Provider value={FooterContextValue}>
+            <span className='settings__select-span'>Select Footer type</span>
             <SelectFooter />
+
+            {footerInfo.footerType === 0 && 
+            <FooterHide/>}
 
             {footerInfo.footerType === 1 && 
             <FooterOne 

@@ -11,37 +11,41 @@ export default function HeaderBlocksList({ blocks, setBlocks }) {
     }
 
     function handleDeleteBlock(id) {
+        if(blocks.length === 1) {
+            return;
+        }
+
       setBlocks(blocks.filter(block => block.id !== id));
     }
 
-    function handleAddBlock() {
+    function handleAddBlock(blockId) {
+        const newBlocks = [...blocks]
+        const index = newBlocks.findIndex(block => block.id === blockId);
+
         const newBlock  = {
               id: uuidv4(),
               heading: "Heading",
               description: "Description",
               button: {text: "", btnURL: "" },
               imgURL: ""
-          }
-
-        setBlocks([...blocks, newBlock]);
+        }
+        
+        newBlocks.splice(index+1, 0, newBlock)
+        setBlocks(newBlocks);
     }
 
     const blockElements = blocks.map(block => 
         <HeaderBlock 
             key={block.id}
-            {...block} 
+            {...block}
+            handleAddBlock={handleAddBlock}
             handleDeleteBlock={handleDeleteBlock}
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
     )
     return (
-        <>
-          <div>
-              {blockElements}
-          </div>
-          <div>
-            <button onClick={handleAddBlock}>Add Block</button>
-          </div>
-        </>
+        <div className='mb-1o5x-input-gap'>
+            {blockElements}
+        </div>
     )
 }

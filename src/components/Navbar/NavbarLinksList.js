@@ -4,17 +4,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function NavbarLinksList({ links, setLinks }) {
     function handleDeleteNavlink(id) {
+        if(links.length === 1) {
+            return;
+        }
         setLinks(links.filter(link => link.id !== id));
     }
 
-    function handleAddNavlink() {
+    function handleAddNavlink(linkId) {
+        const newLinks = [...links];
+        const index = newLinks.findIndex(link => link.id === linkId);
+
         const newNavlink  = {
             id: uuidv4(),
             text: "New Link",
             linkURL: "fake.url",
         }
 
-        setLinks([...links, newNavlink]);
+        newLinks.splice(index+1, 0, newNavlink);
+
+        setLinks(newLinks);
     }
 
     function handleNavlinkChange(id, property, newValue) {
@@ -31,12 +39,12 @@ export default function NavbarLinksList({ links, setLinks }) {
             {...link} 
             handleDeleteNavlink={handleDeleteNavlink}
             handleNavlinkChange={handleNavlinkChange}
+            handleAddNavlink={handleAddNavlink}
         />
     )
     return (
-        <div>
+        <div className='mb-2x-input-gap'>
             {linkElements}
-            <button onClick={handleAddNavlink}>Add Link</button>
         </div>
     )
 }

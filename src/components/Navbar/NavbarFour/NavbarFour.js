@@ -2,11 +2,20 @@ import React, { useState, useContext } from 'react'
 import { NavbarContext } from '../Navbar';
 import NavbarLinksList from '../NavbarLinksList'
 import NavbarInput from '../NavbarInput'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function NavbarFour({ navbarLinks, navbarLogo }) {
     const { handlePostNavbarData } = useContext(NavbarContext);
-    const [links, setLinks] = useState(navbarLinks);
-    const [logoImgURL, setLogoImgURL] = useState(navbarLogo);
+    const [links, setLinks] = useState(navbarLinks || 
+        [
+            {
+                id: uuidv4(),
+                linkURL: "",
+                text: "",
+            },
+        ]
+    );
+    const [logoImgURL, setLogoImgURL] = useState(navbarLogo || "");
     
     return (
         <>
@@ -14,9 +23,13 @@ export default function NavbarFour({ navbarLinks, navbarLogo }) {
                 links={links} 
                 setLinks={setLinks}
             />
-            <br />
-            <NavbarInput state={logoImgURL} setState={setLogoImgURL} label={"Navbar Logo"} />
-            <button 
+
+            <div className='input__one-block-layout mb-1o5x-input-gap'>
+                <NavbarInput state={logoImgURL} setState={setLogoImgURL} label={"Navbar Logo"} />
+            </div>
+
+            <button
+                className='btn btn--purple'
                 onClick={() => {
                     const dataTobeSent = {links, logoImgURL};
                     console.log(dataTobeSent);

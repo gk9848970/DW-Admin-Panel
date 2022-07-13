@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { HeaderContext } from './Header';
 
 const options = [
+  { value: '0', label: 'Hide Header' },
   { value: '1', label: 'Header 1' },
   { value: '2', label: 'Header 2' },
   { value: '3', label: 'Header 3' },

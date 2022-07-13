@@ -1,3 +1,37 @@
 @import-normalize;
 @import 'globalStyles.css';
 @import 'navbar.css';
+@import 'topbar.css';
+@import 'sidemenu.css';
+@import 'settings.css';
+@import 'utilities.css';
+@import 'input.css';
+@import 'buttons.css';
+@import 'footer.css';
+@import 'header.css';
+@import 'brand.css';
+
+:root {
+    --topbar-height: 6rem;
+    --sidemenu-width: 24rem;
+
+    --font-0: 1.20rem;
+    --font-1: 1.28rem;
+    --font-2: 1.45rem;
+    --font-3: 1.60rem;
+
+    --color-primary: #7D4398;
+    --color-secondary: #68CA60;
+    --color-tertiary: #FF6060;
+    --color-bg-light: #FFFFFF;
+    --color-text-faded: #646464;
+    --color-text-normal: #383938;
+
+    --border-radius-small: 2.4px;
+    --border-radius-medium: 4px;
+
+    --input-gap: 1.3rem;
+    --input-double-width: 37rem;
+    --input-add-delete-container-width: 4rem;
+    --input-letter-spacing-1: .05em;
+}

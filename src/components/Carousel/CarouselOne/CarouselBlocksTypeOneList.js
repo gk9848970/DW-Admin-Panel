@@ -11,35 +11,43 @@ export default function CarouselBlocksTypeOneList({ blocks, setBlocks }) {
     }
 
     function handleDeleteBlock(id) {
+        if(blocks.length === 1) {
+            return;
+        }
+
       setBlocks(blocks.filter(block => block.id !== id));
     }
 
-    function handleAddBlock() {
-        const newBlock  = {
-              id: uuidv4(),
-              heading: "",
-              description: "Description",
-              imgURL: "",
-          }
+    function handleAddBlock(blockId) {
+        const newBlocks = [...blocks];
+        const index = newBlocks.findIndex(block => block.id === blockId);
 
-        setBlocks([...blocks, newBlock]);
+        const newBlock  = {
+            id: uuidv4(),
+            heading: "",
+            description: "Description",
+            imgURL: "",
+        }
+
+        newBlocks.splice(index+1, 0, newBlock);
+        setBlocks(newBlocks);
     }
+
+    
 
     const blockElements = blocks.map(block => 
         <CarouselTypeOneBlock 
             key={block.id}
-            {...block} 
+            {...block}
+            handleAddBlock={handleAddBlock}
             handleDeleteBlock={handleDeleteBlock}
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
     )
     return (
         <>
-          <div>
+          <div className='mb-2o5x-input-gap'>
               {blockElements}
-          </div>
-          <div>
-            <button onClick={handleAddBlock}>Add Block</button>
           </div>
         </>
     )

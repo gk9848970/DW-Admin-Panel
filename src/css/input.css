@@ -1,0 +1,91 @@
+.input__one-long-block-layout {
+    width: calc(2.035 * var(--input-double-width));
+}
+
+.input__one-block-layout {
+    width: calc(var(--input-double-width));
+}
+
+.input__two-block-layout {
+    display: grid;
+    grid-template-columns: repeat(2, var(--input-double-width)) var(--input-add-delete-container-width);
+    column-gap: var(--input-gap);
+    align-items: center;
+}
+
+.input__container {
+    position: relative;
+    color: var(--color-text-faded);
+    letter-spacing: var(--input-letter-spacing-1);
+}
+
+textarea.input__container-input {
+    resize: none;
+    letter-spacing: calc(.1 * var(--input-letter-spacing-1));
+    font-size: calc(1.1 * var(--font-1));
+}
+
+.input__container-input {
+    width: 100%;
+    padding: .96rem 1.3rem;
+    outline: none;
+    border: 1px solid var(--color-text-faded);
+    border-radius: var(--border-radius-small);
+    font-size: var(--font-1);
+    color: inherit;
+    transition: all 150ms ease-in-out;
+    letter-spacing: inherit;
+}
+
+.input__container-input:focus {
+    border: 1px solid var(--color-text-normal);
+    font-weight: 600;
+}
+
+.input__container-label {
+    position: absolute;
+    top: .75rem;;
+    left: 1.36rem;
+
+    padding: .2rem;
+    
+    background: var(--color-bg-light);
+
+    font-size: var(--font-1);
+
+    pointer-events: none;
+    transition: top 350ms ease-out, left 350ms ease-out, font-size 350ms ease-out, font-weight 100ms ease-out;
+}
+
+.input__container-label--up {
+    top: -0.8rem;
+    left: 1rem;
+    font-size: calc(.9 * var(--font-1));
+}
+
+.input__container-input:focus + .input__container-label {
+    color: var(--color-text-normal);
+    font-weight: 600;
+}
+
+.input__container-input:focus + .input__container-label--up {
+    color: var(--color-text-normal);
+    font-weight: 600;
+}
+
+.input__add-delete-button-container {
+    display: flex;
+    gap: calc(.75 * var(--input-gap));
+}
+
+.input__add-button, .input__delete-button {
+    outline: none;
+    border: none;
+    background: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}

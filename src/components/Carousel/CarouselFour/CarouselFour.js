@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { CarouselContext } from '../Carousel';
 import CarouselBlocksTypeFourList from './CarouselBlocksTypeFourList'
 import CarouselInput from '../CarouselInput'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CarouselFour(props) {
   const {
@@ -10,7 +11,18 @@ export default function CarouselFour(props) {
   } = props;
   
   const { handlePostCarouselData } = useContext(CarouselContext);
-  const [blocks, setBlocks] = useState(carouselBlocks || []);
+  const [blocks, setBlocks] = useState(carouselBlocks || 
+    [
+      {
+        id: uuidv4(),
+        heading: "",
+        subHeading: "",
+        imgURL: "",
+        description: "Description",
+        button: {text: "", btnURL: "" },
+      },
+    ]
+  );
   const [title, setTitle] = useState(carouselTitle || "");
 
 
@@ -20,10 +32,13 @@ export default function CarouselFour(props) {
         blocks={blocks}
         setBlocks={setBlocks}
       />
-      <br />
-      <CarouselInput state={title} setState={setTitle} label={"Title"}/>
-      <br />
-      <button 
+      
+      <div className='input__one-block-layout mb-1o5x-input-gap'>
+        <CarouselInput state={title} setState={setTitle} label={"Title"}/>
+      </div>
+      
+      <button
+          className='btn btn--purple'
           onClick={() => {
             const dataTobeSent = { blocks, title };
             handlePostCarouselData(dataTobeSent);

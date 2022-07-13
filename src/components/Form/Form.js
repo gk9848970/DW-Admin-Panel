@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectForm from './SelectForm';
+import FormHide from './FormHide/FormHide';
 import FormOne from './FormOne/FormOne';
 import FormTwo from './FormTwo/FormTwo';
 import FormThree from './FormThree/FormThree';
 import FormFour from './FormFour/FormFour';
-import { REST_ENPOINT } from '../../App';
+
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const FormContext = React.createContext();
 
@@ -28,8 +31,11 @@ export default function Form({ form }) {
     function handlePostFormData(data) {
         const newFormInfo = {...formInfo, formData: data}
 
-        axios.post(REST_ENPOINT, {
-            form: newFormInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                form: newFormInfo,
+            }
         })
         .then(res => {
             console.log(res);
@@ -51,6 +57,9 @@ export default function Form({ form }) {
     return (
         <FormContext.Provider value={FormContextValue}>
             <SelectForm />
+
+            {formInfo.formType === 0 && 
+            <FormHide/>}
 
             {formInfo.formType === 1 && 
             <FormOne

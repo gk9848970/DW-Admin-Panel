@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { FooterContext } from './Footer';
 
 const options = [
+  { value: '0', label: 'Hide Footer' },
   { value: '1', label: 'Footer 1' },
   { value: '2', label: 'Footer 2' },
   { value: '3', label: 'Footer 3' },

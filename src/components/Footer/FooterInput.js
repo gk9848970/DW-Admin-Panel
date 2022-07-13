@@ -8,14 +8,21 @@ export default function FooterInput(props) {
     } = props;
 
     return (
-        <div>
-            <label>{label}</label>
-            <input 
-                type="text"
-                name={label} 
-                defaultValue={state}
-                onChange={e => setState(e.target.value)}
-            />
-        </div>
+        <>
+            <div className="input__container">
+                <input 
+                    type="text"
+                    className='input__container-input'
+                    name={label} 
+                    defaultValue={state}
+                    onChange={e => setState(e.target.value)}
+                />
+                {   
+                    state === "" ? 
+                    <label className='input__container-label'>{label}</label> : 
+                    <label className='input__container-label input__container-label--up'>{label}</label>
+                }
+            </div>
+        </>
     )
 }

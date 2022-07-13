@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { FormContext } from './Form';
 
 const options = [
+  { value: '0', label: 'Hide Form' },
   { value: '1', label: 'Form 1' },
   { value: '2', label: 'Form 2' },
   { value: '3', label: 'Form 3' },

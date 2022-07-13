@@ -17,8 +17,8 @@ export default function FooterSocialLinksList({ socialLinks, setSocialLinks}) {
     }
 
     return (
-        <>
-            <div>FooterSocialList</div>
+        <div className='mb-1o5x-input-gap'>
+            <span className='footer__social-links-span'>Select Social Media List</span>
             <div>
                 <FooterSocialLink 
                     labelText={"Instagram Link"} 
@@ -56,6 +56,6 @@ export default function FooterSocialLinksList({ socialLinks, setSocialLinks}) {
                     handleSocialLinkInput={handleSocialLinkInput}
                 />
             </div>
-        </>
+        </div>
   )
 }

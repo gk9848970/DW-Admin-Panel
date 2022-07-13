@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { TestimonialContext } from './Testimonial';
 
 const options = [
+  { value: '0', label: 'Hide Testimonial' },
   { value: '1', label: 'Testimonial 1' },
   { value: '2', label: 'Testimonial 2' },
   { value: '3', label: 'Testimonial 3' },

@@ -1,0 +1,28 @@
+.sidemenu__container {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    z-index: 5;
+
+    width: var(--sidemenu-width);
+    height: calc(100vh - var(--topbar-height));
+    padding: 2rem 0;
+
+    background-color: var(--color-bg-light);
+    box-shadow: .25rem 0 3rem 0 rgba(42, 41, 41, 0.362)
+}
+
+.sidemenu__link {
+    font-size: var(--font-3);
+    color: var(--color-text-faded);
+    padding: 1.2rem 5rem;
+    margin-bottom: 1.92rem;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.sidemenu__link--highlighted {
+    color: var(--color-text-normal);
+    font-weight: 600;
+    border-right: 4px solid var(--color-text-normal);
+}

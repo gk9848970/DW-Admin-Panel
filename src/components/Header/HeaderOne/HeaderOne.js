@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { HeaderContext } from '../Header';
 import HeaderInput from '../HeaderInput'
+import HeaderTextArea from '../HeaderTextArea'
 import HeaderButton from '../HeaderButton'
 
 export default function HeaderOne(props) {
@@ -22,14 +23,25 @@ export default function HeaderOne(props) {
 
   return (
     <>
-      <HeaderInput state={topline} setState={setTopline} label={"Topline"}/>
-      <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
-      <HeaderInput state={description} setState={setDescription} label={"description"}/>
-      <HeaderInput state={imgURL} setState={setImgURL} label={"image URL"}/>
-      <br />
-      <HeaderButton button={button} setButton={setButton} />
-      <br />
-      <button 
+      <div className='input__two-block-layout mb-1x-input-gap'>
+        <HeaderInput state={topline} setState={setTopline} label={"Topline"}/>
+        <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
+      </div>
+
+      <div className='input__one-long-block-layout mb-1x-input-gap'>
+        <HeaderTextArea state={description} setState={setDescription} label={"Description"}/>
+      </div>
+
+      <div className='input__one-block-layout mb-1x-input-gap'>
+        <HeaderInput state={imgURL} setState={setImgURL} label={"image URL"}/>
+      </div>
+
+      <div className='mb-1o5x-input-gap'>
+        <HeaderButton button={button} setButton={setButton} />
+      </div>
+      
+      <button
+          className='btn btn--purple' 
           onClick={() => {
             const dataTobeSent = {
                 blocks: {

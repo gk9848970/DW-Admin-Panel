@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { NavbarContext } from './Navbar';
 
 const options = [
+  { value: '0', label: 'Hide Navbar' },
   { value: '1', label: 'Navbar 1' },
   { value: '2', label: 'Navbar 2' },
   { value: '3', label: 'Navbar 3' },

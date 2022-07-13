@@ -8,26 +8,40 @@ export default function HeaderBlockButton(props) {
     } = props;
     
     return (
-        <>
-            <label>Button URL</label>
-            <input
-                type="text" 
-                name="btnURL" 
-                defaultValue={button.btnURL}
-                onChange={e => 
-                    handleChangePropertyBlock(blockID, "button", {...button, btnURL: e.target.value})
+        <div className='input__two-block-layout'>
+            <div className="input__container">
+                <input
+                    className='input__container-input' 
+                    type="text" 
+                    name="btnText" 
+                    defaultValue={button.text}
+                    onChange={e => 
+                        handleChangePropertyBlock(blockID, "button", {...button, text: e.target.value})
+                    }
+                />
+                {   
+                    button.text === "" ? 
+                    <label className='input__container-label'>Button Text</label> : 
+                    <label className='input__container-label input__container-label--up'>Button Text</label>
                 }
-            />
+            </div>
 
-            <label>Button Text</label>
-            <input
-                type="text" 
-                name="btnText" 
-                defaultValue={button.text}
-                onChange={e => 
-                    handleChangePropertyBlock(blockID, "button", {...button, text: e.target.value})
+            <div className="input__container">
+                <input
+                    className='input__container-input' 
+                    type="text" 
+                    name="btnURL" 
+                    defaultValue={button.btnURL}
+                    onChange={e => 
+                        handleChangePropertyBlock(blockID, "button", {...button, btnURL: e.target.value})
+                    }
+                />
+                {   
+                    button.btnURL === "" ? 
+                    <label className='input__container-label'>Button Text</label> : 
+                    <label className='input__container-label input__container-label--up'>Button Text</label>
                 }
-            />
-        </>
+            </div>
+        </div>
     )
 }

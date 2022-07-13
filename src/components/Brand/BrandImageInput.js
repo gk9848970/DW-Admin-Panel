@@ -10,14 +10,19 @@ export default function BrandImageInput(props) {
   } = props;
   
   return (
-    <div>
-        <label>{label}</label>
-        <input 
+    <div className="input__container input__one-block-layout mb-1x-input-gap">
+        <input
+            className='input__container-input'
             type="text"
             name="imageInput"
             defaultValue={value}
             onChange={e => handleImageInputChange(imageRowNumber, imageColumnNumber, e.target.value)}
         />
+        {   
+            value === "" ? 
+            <label className='input__container-label'>{label}</label> : 
+            <label className='input__container-label input__container-label--up'>{label}</label>
+        }
     </div>
   )
 }

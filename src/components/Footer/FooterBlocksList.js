@@ -11,10 +11,14 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
     }
 
     function handleDeleteBlock(id) {
+        if(blocks.length === 1) {
+            return;
+        }
+        
       setBlocks(blocks.filter(block => block.id !== id));
     }
 
-    function handleAddBlock() {
+    function handleAddBlock(blockId) {
         const newBlock  = {
               id: uuidv4(),
               heading: "Heading",
@@ -27,25 +31,38 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
               ],
           }
 
-        setBlocks([...blocks, newBlock]);
+        const newBlocks = [...blocks];
+        const index = newBlocks.findIndex(block => block.id === blockId);
+        newBlocks.splice(index+1, 0, newBlock);
+
+        setBlocks(newBlocks);
     }
 
     function handleDeleteLink(blockId, linkId) {
         const newBlocks = [...blocks]
         const index = newBlocks.findIndex(block => block.id === blockId);
+
+        if(newBlocks[index].links.length === 1) {
+            return;
+        }
+
         const modifiedLinks = newBlocks[index].links.filter(link => link.id !== linkId);
         newBlocks[index].links = modifiedLinks;
         setBlocks(newBlocks);
     }
 
-    function handleAddLink(blockId) {
+    function handleAddLink(blockId, linkId) {
         const newBlocks = [...blocks]
-        const index = newBlocks.findIndex(block => block.id === blockId);
-        newBlocks[index].links.push({
+        const indexBlock = newBlocks.findIndex(block => block.id === blockId);
+        const indexLink = newBlocks[indexBlock].links.findIndex(link => link.id === linkId)
+
+        const newLink = {
             id: uuidv4(),
             text: "Link Name",
             linkURL: "link url",
-        })
+        }
+
+        newBlocks[indexBlock].links.splice(indexLink+1, 0, newLink);
 
         setBlocks(newBlocks);
     }
@@ -63,7 +80,8 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
     const blockElements = blocks.map(block => 
         <FooterBlock 
             key={block.id} 
-            {...block} 
+            {...block}
+            handleAddBlock={handleAddBlock}
             handleDeleteBlock={handleDeleteBlock}
             handleChangePropertyBlock={handleChangePropertyBlock}
             handleAddLink={handleAddLink}
@@ -75,9 +93,6 @@ export default function FooterBlocksList({ blocks, setBlocks }) {
         <>
           <div>
               {blockElements}
-          </div>
-          <div>
-            <button onClick={handleAddBlock}>Add Block</button>
           </div>
         </>
     )

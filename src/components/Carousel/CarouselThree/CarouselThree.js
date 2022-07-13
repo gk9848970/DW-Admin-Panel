@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { CarouselContext } from '../Carousel';
 import CarouselBlocksTypeThreeList from './CarouselBlocksTypeThreeList'
 import CarouselInput from '../CarouselInput'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CarouselOne(props) {
   const {
@@ -10,7 +11,17 @@ export default function CarouselOne(props) {
   } = props;
   
   const { handlePostCarouselData } = useContext(CarouselContext);
-  const [blocks, setBlocks] = useState(carouselBlocks || []);
+  const [blocks, setBlocks] = useState(carouselBlocks || 
+    [
+        {
+            id: uuidv4(),
+            topline: "",
+            heading: "",
+            description: "Description",
+            imgURL: "",
+        },
+    ]
+  );
   const [title, setTitle] = useState(carouselTitle || "");
 
   return (
@@ -19,10 +30,13 @@ export default function CarouselOne(props) {
         blocks={blocks}
         setBlocks={setBlocks}
       />
-      <br />
-      <CarouselInput state={title} setState={setTitle} label={"Title"}/>
-      <br />
-      <button 
+      
+      <div className='input__one-block-layout mb-1o5x-input-gap'>
+        <CarouselInput state={title} setState={setTitle} label={"Title"}/>
+      </div>
+      
+      <button
+          className='btn btn--purple' 
           onClick={() => {
             const newBlocks = [...blocks];
 

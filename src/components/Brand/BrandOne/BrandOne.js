@@ -78,12 +78,20 @@ export default function BrandOne(props) {
 
   return (
     <div>
-      {imageElementsSpreadOut}
-      <br />
-      <BrandInput state={title} setState={setTitle} label={"Title"}/>
-      <BrandInput state={description} setState={setDescription} label={"Description"}/>
-      <br />
-      <button 
+      <div className='input__two-block-layout'>
+        <BrandInput state={title} setState={setTitle} label={"Title"}/>
+        <BrandInput state={description} setState={setDescription} label={"Description"}/>
+      </div>
+
+      <div className='mb-1o5x-input-gap'>
+        <span className='brand__text-span'>Brand Images</span>
+        <div>
+          {imageElementsSpreadOut}
+        </div>
+      </div>
+      
+      <button
+          className='btn btn--purple'
           onClick={() => {
             const dataTobeSent = { imageGrid, title, description };
             handlePostBrandData(dataTobeSent);

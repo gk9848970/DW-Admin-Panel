@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { HeaderContext } from '../Header';
 import HeaderInput from '../HeaderInput'
+import HeaderTextArea from '../HeaderTextArea'
 
 export default function HeaderFour(props) {
   const { 
@@ -19,12 +20,21 @@ export default function HeaderFour(props) {
 
   return (
     <>
-      <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
-      <HeaderInput state={description} setState={setDescription} label={"description"}/>
-      <HeaderInput state={imgURL} setState={setImgURL} label={"Background Image URL"}/>
-      <HeaderInput state={searchbarText} setState={setSearchbarText} label={"Search Bar Text"}/>
-      <br />
-      <button 
+      <div className='input__two-block-layout mb-1x-input-gap'>
+        <HeaderInput state={heading} setState={setHeading} label={"headling"}/>
+        <HeaderInput state={searchbarText} setState={setSearchbarText} label={"Search Bar Text"}/>
+      </div>
+      
+      <div className='input__one-long-block-layout mb-1x-input-gap'>
+        <HeaderTextArea state={description} setState={setDescription} label={"Description"}/>
+      </div>
+
+      <div className='input__one-long-block-layout mb-1o5x-input-gap'>
+        <HeaderInput state={imgURL} setState={setImgURL} label={"Background Image URL"}/>
+      </div>
+      
+      <button
+          className='btn btn--purple'  
           onClick={() => {
             const dataTobeSent = {
                 blocks: {

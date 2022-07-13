@@ -3,6 +3,7 @@ import { FooterContext } from '../Footer';
 import FooterBlocksList from '../FooterBlocksList'
 import FooterInput from '../FooterInput'
 import FooterSocialLinksList from '../FooterSocialLinksList'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function FooterFour(props) {
   const {
@@ -18,9 +19,22 @@ export default function FooterFour(props) {
 
   const [heading, setHeading] = useState(footerHeading || "");
   const [subHeading, setSubHeading] = useState(footerSubHeading || "");
-  // const [logoLink, setLogoLink] = useState(footerLogoLink || "");
   const [copyright, setCopyright] = useState(footerCopyright || "");
-  const [blocks, setBlocks] = useState(footerBlocks || []);
+  const [blocks, setBlocks] = useState(footerBlocks || 
+    [
+      {
+        id: uuidv4(),
+        heading: "Heading",
+        links: [
+            {
+                id: uuidv4(),
+                text: "Link Name",
+                linkURL: "www.bing.com",
+            },
+        ],
+      }
+    ]
+  );
   const [socialLinks, setSocialLinks] = useState(footerSocialLinks || 
     {
       facebook: { linkURL: "" },
@@ -36,20 +50,27 @@ export default function FooterFour(props) {
         blocks={blocks}
         setBlocks={setBlocks}
       />
-      <br />
-      <FooterInput state={heading} setState={setHeading} label={"Heading"}/>
-      <FooterInput state={subHeading} setState={setSubHeading} label={"Sub Heading"}/>
-      {/* <FooterInput state={logoLink} setState={setLogoLink} label={"Logo Click Url"}/> */}
-      <FooterInput state={copyright} setState={setCopyright} label={"Copyright"}/>
-      <br />
+      
+      <div className='input__one-block-layout mb-1x-input-gap'>
+        <FooterInput state={heading} setState={setHeading} label={"Heading"}/>
+      </div>
+
+      <div className='input__one-block-layout mb-1x-input-gap'>
+        <FooterInput state={subHeading} setState={setSubHeading} label={"Sub Heading"}/>
+      </div>
+      
+      <div className='input__one-block-layout mb-1x-input-gap'>
+        <FooterInput state={copyright} setState={setCopyright} label={"Copyright"}/>
+      </div>
+      
       <FooterSocialLinksList socialLinks={socialLinks} setSocialLinks={setSocialLinks}/>
-      <br />
-      <button 
+      
+      <button
+          className='btn btn--purple'
           onClick={() => {
               const dataTobeSent = {
                 heading, 
                 subHeading,
-                // logoLink,
                 copyright,
                 blocks, 
                 socialLinks

@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectCarousel from './SelectCarousel';
+import CarouselHide from './CarouselHide/CarouselHide';
 import CarouselOne from './CarouselOne/CarouselOne';
 import CarouselTwo from './CarouselTwo/CarouselTwo';
 import CarouselThree from './CarouselThree/CarouselThree';
 import CarouselFour from './CarouselFour/CarouselFour';
 
-import { REST_ENPOINT } from '../../App';
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const CarouselContext = React.createContext();
 
@@ -29,11 +31,15 @@ export default function Carousel({ carousel }) {
     function handlePostCarouselData(data) {
         const newCarouselInfo = {...carouselInfo, carouselData: data}
 
-        axios.post(REST_ENPOINT, {
-            carousel: newCarouselInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                carousel: newCarouselInfo,
+            }
         })
         .then(res => {
             console.log(res);
+            // window.reload();
         })
         .catch(err => {
             console.log(err)
@@ -52,6 +58,9 @@ export default function Carousel({ carousel }) {
     return (
         <CarouselContext.Provider value={CarouselContextValue}>
             <SelectCarousel />
+
+            {carouselInfo.carouselType === 0 && 
+            <CarouselHide/>}
 
             {carouselInfo.carouselType === 1 && 
             <CarouselOne

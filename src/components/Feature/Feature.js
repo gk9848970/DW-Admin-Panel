@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectFeature from './SelectFeature';
+import FeatureHide from './FeatureHide/FeatureHide';
 import FeatureOne from './FeatureOne/FeatureOne';
 import FeatureTwo from './FeatureTwo/FeatureTwo';
 import FeatureThree from './FeatureThree/FeatureThree';
 import FeatureFour from './FeatureFour/FeatureFour';
-import { REST_ENPOINT } from '../../App';
+
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const FeatureContext = React.createContext();
 
@@ -28,8 +31,11 @@ export default function Feature({ feature }) {
     function handlePostFeatureData(data) {
         const newFeatureInfo = {...featureInfo, featureData: data}
 
-        axios.post(REST_ENPOINT, {
-            feature: newFeatureInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                feature: newFeatureInfo,
+            }
         })
         .then(res => {
             console.log(res);
@@ -51,6 +57,9 @@ export default function Feature({ feature }) {
     return (
         <FeatureContext.Provider value={FeatureContextValue}>
             <SelectFeature />
+
+            {featureInfo.featureType === 0 && 
+            <FeatureHide/>}
 
             {featureInfo.featureType === 1 && 
             <FeatureOne

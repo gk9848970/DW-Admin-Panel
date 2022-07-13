@@ -9,7 +9,8 @@ import BrandTwo from './BrandTwo/BrandTwo';
 import BrandThree from './BrandThree/BrandThree';
 import BrandFour from './BrandFour/BrandFour';
 
-import { REST_ENPOINT } from '../../App';
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const BrandContext = React.createContext();
 
@@ -31,8 +32,11 @@ export default function Brand({ brand }) {
     function handlePostBrandData(data) {
         const newBrandInfo = {...brandInfo, brandData: data}
 
-        axios.post(REST_ENPOINT, {
-            brand: newBrandInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                brand: newBrandInfo,
+            }
         })
         .then(res => {
             console.log(res);

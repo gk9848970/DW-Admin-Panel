@@ -10,14 +10,19 @@ export default function FormBlockInput(props) {
     } = props;
 
     return (
-        <>
-            <label>{labelName}</label>
+        <div className="input__container">
             <input
+                className='input__container-input' 
                 type="text" 
                 name="heading" 
                 defaultValue={value}
                 onChange={e => handleChangePropertyBlock(blockID, inputName, e.target.value)}
             />
-        </>
+            {   
+                value === "" ? 
+                <label className='input__container-label'>{labelName}</label> : 
+                <label className='input__container-label input__container-label--up'>{labelName}</label>
+            }
+        </div>
     )
 }

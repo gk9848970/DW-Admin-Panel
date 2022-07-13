@@ -1,0 +1,20 @@
+.topbar__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    padding-left: 8rem;
+    height: var(--topbar-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    background-color: var(--color-primary);
+}
+
+.topbar__logo {
+    height: calc( 0.525 * var(--topbar-height));
+}

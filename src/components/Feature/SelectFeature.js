@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { FeatureContext } from './Feature';
 
 const options = [
+  { value: '0', label: 'Hide Feature' },
   { value: '1', label: 'Feature 1' },
   { value: '2', label: 'Feature 2' },
   { value: '3', label: 'Feature 3' },

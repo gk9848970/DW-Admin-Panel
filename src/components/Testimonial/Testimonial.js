@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import SelectTestimonial from './SelectTestimonial';
+import TestimonialHide from './TestimonialHide/TestimonialHide';
 import TestimonialOne from './TestimonialOne/TestimonialOne';
 import TestimonialTwo from './TestimonialTwo/TestimonialTwo';
 import TestimonialThree from './TestimonialThree/TestimonialThree';
-import { REST_ENPOINT } from '../../App';
+
+import { REST_ENPOINT_POST_EMAIL } from '../../App';
+import { REST_ENPOINT_POST_DATA } from '../../App';
 
 export const TestimonialContext = React.createContext();
 
@@ -27,8 +30,11 @@ export default function Testimonial({ testimonial }) {
     function handlePostTestimonialData(data) {
         const newTestimonialInfo = {...testimonialInfo, testimonialData: data}
 
-        axios.post(REST_ENPOINT, {
-            testimonial: newTestimonialInfo,
+        axios.post(REST_ENPOINT_POST_DATA, {
+            Email: REST_ENPOINT_POST_EMAIL,
+            data: {
+                testimonial: newTestimonialInfo,
+            }
         })
         .then(res => {
             console.log(res);
@@ -50,6 +56,9 @@ export default function Testimonial({ testimonial }) {
     return (
         <TestimonialContext.Provider value={TestimonialContextValue}>
             <SelectTestimonial />
+
+            {testimonialInfo.testimonialType === 0 && 
+            <TestimonialHide/>}
 
             {testimonialInfo.testimonialType === 1 && 
             <TestimonialOne

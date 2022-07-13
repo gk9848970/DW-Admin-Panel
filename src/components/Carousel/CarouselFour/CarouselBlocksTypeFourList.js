@@ -11,10 +11,17 @@ export default function CarouselBlocksTypeFourList({ blocks, setBlocks }) {
     }
 
     function handleDeleteBlock(id) {
-      setBlocks(blocks.filter(block => block.id !== id));
+        if(blocks.length === 1) {
+            return;
+        }
+
+        setBlocks(blocks.filter(block => block.id !== id));
     }
 
-    function handleAddBlock() {
+    function handleAddBlock(blockId) {
+        const newBlocks = [...blocks];
+        const index = newBlocks.findIndex(block => block.id === blockId);
+
         const newBlock  = {
               id: uuidv4(),
               heading: "",
@@ -24,24 +31,23 @@ export default function CarouselBlocksTypeFourList({ blocks, setBlocks }) {
               button: {text: "", btnURL: "" },
           }
 
-        setBlocks([...blocks, newBlock]);
+          newBlocks.splice(index+1, 0, newBlock);
+          setBlocks(newBlocks);
     }
 
     const blockElements = blocks.map(block => 
         <CarouselTypeFourBlock 
             key={block.id}
-            {...block} 
+            {...block}
+            handleAddBlock={handleAddBlock}
             handleDeleteBlock={handleDeleteBlock}
             handleChangePropertyBlock={handleChangePropertyBlock}
         />
     )
     return (
         <>
-          <div>
+          <div className='mb-2o5x-input-gap'>
               {blockElements}
-          </div>
-          <div>
-            <button onClick={handleAddBlock}>Add Block</button>
           </div>
         </>
     )

@@ -3,6 +3,7 @@ import Select from 'react-select';
 import { CarouselContext } from './Carousel';
 
 const options = [
+  { value: '0', label: 'Hide Carousel' },
   { value: '1', label: 'Carousel 1' },
   { value: '2', label: 'Carousel 2' },
   { value: '3', label: 'Carousel 3' },

@@ -1,0 +1,46 @@
+.settings__container {
+    margin-top: var(--topbar-height);
+    margin-left: var(--sidemenu-width);
+    padding: 1.9rem;
+    padding-left: 3rem;
+    padding-bottom: 2.5rem;
+}
+
+.settings__select-span {
+    display: block;
+    font-size: var(--font-2);
+    color: var(--color-text-normal);
+    margin-bottom: 1rem;
+}
+
+/*
+    Dropdown
+    Some settings needed !important to override default ones
+*/
+
+.css-b62m3t-container {
+    width: 37rem;
+    margin-bottom: 2rem;
+}
+
+.css-1s2u09g-control {
+    font-size: var(--font-1);
+    border-width: 1.5px !important;
+    border-color: var(--color-text-faded);
+    border-radius: var(--border-radius-small) !important;
+}
+
+
+/* Hidden Text */
+
+.settings__hidden-text {
+    margin-top: calc(2 * var(--input-gap)); 
+    margin-bottom: calc(1 * var(--input-gap)); 
+    display: block;
+    font-size: var(--font-2);
+    color: var(--color-text-normal);
+}
+
+
+
+
